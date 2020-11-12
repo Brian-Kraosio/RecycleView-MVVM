@@ -29,7 +29,7 @@ public class CustViewModel extends ViewModel {
 
     public void addValue(){
 
-        this.dataset.add(new CustData("Eko", "Kontol","9999999"));
+        this.dataset.add(new CustData("Eko", "Gold","9999999"));
         this.custDataLive.setValue(dataset);
     }
 }

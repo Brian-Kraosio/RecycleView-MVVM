@@ -5,9 +5,6 @@ public class CustData {
     private String goods;
     private String total;
 
-    public CustData() {
-    }
-
     public CustData(String name, String goods, String total) {
         this.name = name;
         this.goods = goods;

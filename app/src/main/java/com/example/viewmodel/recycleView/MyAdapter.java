@@ -19,7 +19,7 @@ import java.util.List;
 
 public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
 
-    private List<CustData> custDataList;
+    private List<CustData> custDataList = new ArrayList<>();
     private Context context;
 
     public MyAdapter(List<CustData> custDataList, Context context) {
@@ -40,13 +40,22 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
         holder.bind(custData);
     }
 
+    public void setCustDataList(List<CustData> custDataList) {
+        this.custDataList = custDataList;
+        notifyDataSetChanged();
+    }
+
     @Override
     public int getItemCount() {
-        return custDataList.size();
+        if(custDataList!=null){
+            return custDataList.size();
+        }else{
+            return 0;
+        }
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
-        public RowViewBinding bindingView;
+        private RowViewBinding bindingView;
 
         public ViewHolder(@NonNull RowViewBinding bindingView) {
             super(bindingView.getRoot());
@@ -57,4 +66,5 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
             bindingView.executePendingBindings();
         }
     }
+
 }
